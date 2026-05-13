@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="bg-gray-900 text-gray-400 px-6 md:px-16 py-16">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-12">
-                    <h1 className="text-6xl md:text-6xl font-bold text-white">
+                    <h1 className="text-3xl md:text-5xl font-bold text-cyan-500 tracking-wide">
                         Wanderlust
                     </h1>
                     <p className="mt-4 max-w-xl">
@@ -17,7 +17,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
                     {/* Newsletter */}
                     <div>
-                        <h3 className="text-white mb-3 tracking-wide">NEWSLETTER</h3>
+                        <h3 className="text-white mb-3 tracking-wide font-semibold">NEWSLETTER</h3>
                         <p className="mb-4 text-sm">
                             Subscribe for exclusive travel deals and inspiration.
                         </p>
@@ -34,7 +34,7 @@ const Footer = () => {
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="text-white mb-3 tracking-wide">QUICK LINKS</h3>
+                        <h3 className="text-white mb-3 tracking-wide font-semibold">QUICK LINKS</h3>
                         <ul className="space-y-2">
                             <li className="hover:text-white cursor-pointer">Home</li>
                             <li className="hover:text-white cursor-pointer">Destinations</li>
@@ -45,7 +45,7 @@ const Footer = () => {
 
                     {/* Support */}
                     <div>
-                        <h3 className="text-white mb-3 tracking-wide">SUPPORT</h3>
+                        <h3 className="text-white mb-3 tracking-wide font-semibold ">SUPPORT</h3>
                         <ul className="space-y-2">
                             <li className="hover:text-white cursor-pointer">Help Center</li>
                             <li className="hover:text-white cursor-pointer">
@@ -59,7 +59,7 @@ const Footer = () => {
 
                     {/* Contact */}
                     <div>
-                        <h3 className="text-white mb-3 tracking-wide">CONTACT US</h3>
+                        <h3 className="text-white mb-3 tracking-wide font-semibold">CONTACT US</h3>
                         <ul className="space-y-2">
                             <li>786 901 1622</li>
                             <li>info@wandarland.com</li>

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Wanderlust Travel Booking",
+  title: "Wanderlust - A Travel Booking Application",
   description: "A travel booking application built with Next.js, allowing users to explore and book their dream vacations with ease.",
 };
 

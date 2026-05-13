@@ -1,61 +1,85 @@
-import { Separator } from "@heroui/react";
+import { Button, Separator } from "@heroui/react";
+import { FaArrowRight } from "react-icons/fa";
+import { FiSearch } from "react-icons/fi";
 
 const Banner = () => {
     return (
-        <div className="bg-[url('/assets/banner.png')] text-white  flex justify-between flex-col items-center  gap-5 h-150">
-            <div className="p-10 text-center flex justify-center flex-col items-center gap-3.5 flex-1">
-                <h1 className="text-7xl">
+        <div className="bg-[url('/assets/banner.png')] bg-cover bg-center text-white flex flex-col items-center justify-between gap-6 min-h-[80vh] lg:min-h-screen px-4 pt-28 pb-6">
+
+            {/* Content */}
+            <div className="flex flex-1 flex-col items-center justify-center text-center">
+
+                <h1 className="text-4xl leading-tight sm:text-5xl md:text-6xl lg:text-8xl font-medium tracking-wide">
                     Discover Your <br /> Next Adventure
                 </h1>
 
-                <p className="text-2xl">
+                <p className="mt-4 max-w-2xl text-sm text-white/90 sm:text-base md:text-lg lg:text-xl">
                     Explore breathtaking destinations and create unforgettable memories
                     with our curated travel experiences.
                 </p>
 
-                <div className="flex gap-5">
-                    <button className="uppercase bg-cyan-500 px-5 py-3 cursor-pointer">
-                        Explore Now
-                    </button>
+                {/* Buttons */}
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                    <Button className="bg-cyan-500 px-6 py-6 uppercase cursor-pointer">
+                        Explore Now <FaArrowRight className="ml-1" />
+                    </Button>
 
-                    <button className="uppercase px-5 py-3 bg-white/50 cursor-pointer">
+                    <Button className="bg-white/40 px-6 py-6 uppercase backdrop-blur-md cursor-pointer">
                         View Destination
-                    </button>
+                    </Button>
                 </div>
             </div>
 
-            <div className=" bg-white/30 flex justify-between gap-5 w-full items-center">
-                <div className="px-3">
-                    <h3 className="text-sm">Location</h3>
-                    <p className="text-xs">Address, City or Zip</p>
+            {/* Search Box */}
+            <div className="hidden w-full max-w-7xl items-center justify-between gap-4 rounded-xl border border-white/20 bg-white/20 px-4 py-1 backdrop-blur-md md:flex">
+
+                <div className="p-2">
+                    <h3 className="text-sm font-medium">Location</h3>
+                    <p className="text-xs text-white/80">
+                        Address, City or Zip
+                    </p>
                 </div>
 
-                <Separator variant="tertiary" orientation="vertical" />
+                <Separator
+                    variant="tertiary"
+                    orientation="vertical"
+                />
 
-                <div>
-                    <h3 className="text-sm">Date/Duration</h3>
-                    <p className="text-xs">Anytime/3 Days</p>
+                <div className="p-2 ">
+                    <h3 className="text-sm font-medium">
+                        Date/Duration
+                    </h3>
+                    <p className="text-xs text-white/80">
+                        Anytime/3 Days
+                    </p>
                 </div>
 
-                <Separator variant="tertiary" orientation="vertical" />
+                <Separator
+                    variant="tertiary"
+                    orientation="vertical"
+                />
 
-                <div>
-                    <h3 className="text-sm">Budget</h3>
-                    <p className="text-xs">$0-$3000</p>
+                <div className="p-2">
+                    <h3 className="text-sm font-medium">Budget</h3>
+                    <p className="text-xs text-white/80">
+                        $0-$3000
+                    </p>
                 </div>
 
-                <Separator variant="tertiary" orientation="vertical" />
+                <Separator
+                    variant="tertiary"
+                    orientation="vertical"
+                />
 
-                <div>
-                    <h3 className="text-sm">People</h3>
-                    <p className="text-xs">5-10</p>
+                <div className="p-2">
+                    <h3 className="text-sm font-medium">People</h3>
+                    <p className="text-xs text-white/80">5-10</p>
                 </div>
 
-
-
-                <div className="bg-cyan-500 py-2 px-4">
-                    <h3>Search</h3>
-                </div>
+                <Button className="bg-cyan-500 px-5 py-5">
+                    <FiSearch />
+                    Search
+                </Button>
             </div>
         </div>
     );
