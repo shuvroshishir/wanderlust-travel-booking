@@ -1,4 +1,6 @@
 import { getSingleDestination } from '@/actions/destination';
+import { EditModal } from '@/components/EditModal';
+import { Button } from '@heroui/react';
 
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +18,7 @@ import {
 const DestinationDetailsPage = async ({ params }) => {
     const { id } = await params;
     const destination = await getSingleDestination(id);
-    console.log(destination);
+    // console.log(destination);
 
     return (
         <section className="min-h-screen bg-[#f8f8f8] py-25">
@@ -32,15 +34,12 @@ const DestinationDetailsPage = async ({ params }) => {
                     </Link>
 
                     <div className="flex items-center gap-4">
-                        <button className="border border-gray-300 px-6 py-2 flex items-center gap-2 hover:bg-cyan-500 hover:text-white transition rounded-full">
-                            <FaPen className="text-sm" />
-                            Edit
-                        </button>
+                        <EditModal destination={destination} />
 
-                        <button className="border border-red-300 text-red-500 px-6 py-2 flex items-center gap-2 hover:bg-red-500 hover:text-white transition rounded-full">
+                        <Button variant='outline' size="lg" className="border border-red-300 text-red-500 px-6 py-2 flex items-center gap-2 hover:bg-red-500 hover:text-white transition rounded-full">
                             <FaTrash className="text-sm" />
                             Cancel
-                        </button>
+                        </Button>
                     </div>
                 </div>
 
