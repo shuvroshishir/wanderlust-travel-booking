@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
     FaStar,
     FaArrowRight,
@@ -7,7 +8,7 @@ import {
 } from "react-icons/fa";
 
 const DestinationCard = ({ destination }) => {
-    const { imageUrl, country, destinationName, duration, price } = destination;
+    const { _id, imageUrl, country, destinationName, duration, price } = destination;
 
     return (
         <div className="group border border-gray-300 rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-lg p-5 transition flex flex-col">
@@ -54,10 +55,12 @@ const DestinationCard = ({ destination }) => {
                 </div>
 
                 {/* button */}
-                <button className="text-sky-500 font-medium flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
-                    BOOK NOW
-                    <FaArrowRight className="text-sm" />
-                </button>
+                <Link href={`/destinations/${_id}`}>
+                    <button className="text-sky-500 font-medium flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                        BOOK NOW
+                        <FaArrowRight className="text-sm" />
+                    </button>
+                </Link>
             </div>
         </div>
     );

@@ -29,7 +29,7 @@ const AdminPage = () => {
 
     return (
         <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg my-30">
-            <h1 className="text-3xl font-bold mb-8 text-center">Add new destination form here</h1>
+            <h1 className="font-merienda text-3xl font-bold text-center">Add New Travel Package</h1>
             <form
                 onSubmit={handleSubmit}
                 className="p-10 space-y-8"
@@ -39,7 +39,7 @@ const AdminPage = () => {
                     <div className="md:col-span-2">
                         <TextField name="destinationName" isRequired>
                             <Label>Destination Name</Label>
-                            <Input placeholder="Bali Paradise" className="rounded-2xl" />
+                            <Input placeholder="Bali Paradise" className="rounded-lg" />
                             <FieldError />
                         </TextField>
                     </div>
@@ -47,7 +47,7 @@ const AdminPage = () => {
                     {/* Country */}
                     <TextField name="country" isRequired>
                         <Label>Country</Label>
-                        <Input placeholder="Indonesia" className="rounded-2xl" />
+                        <Input placeholder="Indonesia" className="rounded-lg" />
                         <FieldError />
                     </TextField>
 
@@ -60,7 +60,7 @@ const AdminPage = () => {
                             placeholder="Select category"
                         >
                             <Label>Category</Label>
-                            <Select.Trigger className="rounded-2xl">
+                            <Select.Trigger className="rounded-lg">
                                 <Select.Value />
                                 <Select.Indicator />
                             </Select.Trigger>
@@ -101,7 +101,7 @@ const AdminPage = () => {
                         <Input
                             type="number"
                             placeholder="1299"
-                            className="rounded-2xl"
+                            className="rounded-lg"
                         />
                         <FieldError />
                     </TextField>
@@ -111,7 +111,7 @@ const AdminPage = () => {
                         <Label>Duration</Label>
                         <Input
                             placeholder="7 Days / 6 Nights"
-                            className="rounded-2xl"
+                            className="rounded-lg"
                         />
                         <FieldError />
                     </TextField>
@@ -120,7 +120,7 @@ const AdminPage = () => {
                     <div className="md:col-span-2">
                         <TextField name="departureDate" type="date" isRequired>
                             <Label>Departure Date</Label>
-                            <Input type="date" className="rounded-2xl" />
+                            <Input type="date" className="rounded-lg" />
                             <FieldError />
                         </TextField>
                     </div>
@@ -132,7 +132,7 @@ const AdminPage = () => {
                             <Input
                                 type="url"
                                 placeholder="https://example.com/bali-paradise.jpg"
-                                className="rounded-2xl"
+                                className="rounded-lg"
                             />
                             <FieldError />
                         </TextField>
@@ -145,6 +145,7 @@ const AdminPage = () => {
                             <TextArea
                                 placeholder="Describe the travel experience..."
                                 className="rounded-3xl"
+                                rows={5}
                             />
                             <FieldError />
                         </TextField>
@@ -153,13 +154,12 @@ const AdminPage = () => {
 
                 {/* Buttons */}
 
-                <Button
+                <button
                     type="submit"
-                    variant="outline"
-                    className=" w-full bg-cyan-500 text-white"
+                    className=" w-full bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 transition-colors duration-200 py-3"
                 >
                     Add Destination
-                </Button>
+                </button>
             </form>
         </div>
     );
