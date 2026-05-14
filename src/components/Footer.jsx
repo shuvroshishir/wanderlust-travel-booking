@@ -1,11 +1,10 @@
-import React from 'react';
 
 const Footer = () => {
     return (
         <footer className="bg-gray-900 text-gray-400 px-6 md:px-16 py-16">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-12">
-                    <h1 className="text-3xl md:text-5xl font-bold text-cyan-500 tracking-wide">
+                    <h1 className={`font-merienda text-3xl md:text-5xl font-bold text-cyan-500`}>
                         Wanderlust
                     </h1>
                     <p className="mt-4 max-w-xl">
@@ -22,7 +21,7 @@ const Footer = () => {
                             Subscribe for exclusive travel deals and inspiration.
                         </p>
 
-                        <div className="flex items-center bg-gray-800 px-4 py-3">
+                        <div className="flex items-center bg-gray-800 px-6 py-3 rounded-full">
                             <input
                                 type="email"
                                 placeholder="Enter email"

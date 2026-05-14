@@ -25,7 +25,7 @@ const Navbar = () => {
 
     return (
         <div className="absolute top-0 z-50 w-full p-3 md:p-4">
-            <nav className="max-w-7xl mx-auto rounded-xl flex items-center justify-between bg-white p-4 px-6">
+            <nav className="max-w-7xl mx-auto rounded-xl flex items-center justify-between bg-white p-3 px-6">
 
                 {/* Left Menu Desktop */}
                 <ul className="hidden items-center space-x-6 font-medium lg:flex">
@@ -47,13 +47,9 @@ const Navbar = () => {
 
                 {/* Logo */}
                 <Link href={'/'}>
-                    <Image
-                        src="/assets/Wanderlast.png"
-                        alt="Wanderlust Logo"
-                        width={130}
-                        height={20}
-                        className="w-27.5 md:w-32.5"
-                    />
+                    <h1 className={`font-merienda text-xl sm:text-3xl font-extrabold text-cyan-500`}>
+                        Wanderlust
+                    </h1>
                 </Link>
 
                 {/* Right Menu Desktop */}

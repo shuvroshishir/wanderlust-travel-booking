@@ -1,6 +1,9 @@
 import { Button, Separator } from "@heroui/react";
 import { FaArrowRight } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
+import { FaBookmark } from "react-icons/fa6";
+import Link from "next/link";
+
 
 const Banner = () => {
     return (
@@ -9,7 +12,7 @@ const Banner = () => {
             {/* Content */}
             <div className="flex flex-1 flex-col items-center justify-center text-center">
 
-                <h1 className="text-4xl leading-tight sm:text-5xl md:text-6xl lg:text-8xl font-medium tracking-wide">
+                <h1 className={`font-merienda text-4xl leading-tight sm:text-5xl md:text-6xl lg:text-8xl font-medium tracking-wide`}>
                     Discover Your <br /> Next Adventure
                 </h1>
 
@@ -20,13 +23,18 @@ const Banner = () => {
 
                 {/* Buttons */}
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                    <Button className="bg-cyan-500 px-6 py-6 uppercase cursor-pointer">
-                        Explore Now <FaArrowRight className="ml-1" />
-                    </Button>
+                    <Link href={'/destinations'}>
+                        <Button className="bg-cyan-500 px-6 py-6 uppercase cursor-pointer">
+                            Explore Now <FaArrowRight className="ml-1" />
+                        </Button>
+                    </Link>
 
-                    <Button className="bg-white/40 px-6 py-6 uppercase backdrop-blur-md cursor-pointer">
-                        View Destination
-                    </Button>
+
+                    <Link href={'/bookings'}>
+                        <Button className="bg-white/40 px-6 py-6 uppercase backdrop-blur-md cursor-pointer">
+                            View Bookings <FaBookmark className="ml-1" />
+                        </Button>
+                    </Link>
                 </div>
             </div>
 
