@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Merienda } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 
 const merienda = Merienda({
   variable: "--font-merienda",
@@ -39,6 +40,8 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+
+        <Toaster />
       </body>
     </html>
   );

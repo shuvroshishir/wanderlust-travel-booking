@@ -13,6 +13,7 @@ import {
     Select,
 } from "@heroui/react";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import { BiEdit } from "react-icons/bi";
 
 export function EditModal({ destination }) {
@@ -45,9 +46,13 @@ export function EditModal({ destination }) {
         });
 
         const data = await res.json();
-        console.log(data);
 
-        router.refresh();
+        if (data.modifiedCount > 0) {
+            toast.success("Destination updated successfully!");
+            router.refresh();
+        } else {
+            toast.error("Failed to update destination.");
+        }
     };
 
 

@@ -3,6 +3,7 @@
 import { FieldError, Input, Label, ListBox, TextField, Select, TextArea, Button } from '@heroui/react';
 import { redirect } from 'next/navigation';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AdminPage = () => {
 
@@ -21,7 +22,11 @@ const AdminPage = () => {
         })
         const result = await res.json();
 
-        console.log(result);
+        if (result.insertedId) {
+            toast.success("Destination added successfully!");
+        } else {
+            toast.error("Failed to add destination.");
+        }
         e.target.reset();
         redirect('/destinations');
     }

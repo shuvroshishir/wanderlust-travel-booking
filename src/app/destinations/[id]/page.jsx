@@ -1,6 +1,6 @@
 import { getSingleDestination } from '@/actions/destination';
+import { DeleteAlert } from '@/components/DeleteAlert';
 import { EditModal } from '@/components/EditModal';
-import { Button } from '@heroui/react';
 
 import Image from "next/image";
 import Link from "next/link";
@@ -11,8 +11,6 @@ import {
     FaRegCalendarAlt,
     FaCheck,
     FaArrowRight,
-    FaPen,
-    FaTrash,
 } from "react-icons/fa";
 
 const DestinationDetailsPage = async ({ params }) => {
@@ -36,10 +34,7 @@ const DestinationDetailsPage = async ({ params }) => {
                     <div className="flex items-center gap-4">
                         <EditModal destination={destination} />
 
-                        <Button variant='outline' size="lg" className="border border-red-300 text-red-500 px-6 py-2 flex items-center gap-2 hover:bg-red-500 hover:text-white transition rounded-full">
-                            <FaTrash className="text-sm" />
-                            Cancel
-                        </Button>
+                        <DeleteAlert destination={destination} />
                     </div>
                 </div>
 
