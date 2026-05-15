@@ -58,7 +58,7 @@ export function EditModal({ destination }) {
 
     return (
         <Modal>
-            <Button variant="outline" size="lg" className="border border-gray-300 px-6 py-2 flex items-center gap-2 hover:bg-cyan-500 hover:text-white transition rounded-full">
+            <Button variant="outline" size="lg" className="border border-gray-300 px-6 py-2 flex items-center gap-2 hover:bg-cyan-500 hover:text-white transition-all rounded-full">
                 <BiEdit /> Edit
             </Button>
 

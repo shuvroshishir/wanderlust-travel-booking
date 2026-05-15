@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
+import { Avatar, Button } from "@heroui/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { GoPerson } from "react-icons/go";
 import { HiOutlineMenu, HiX } from "react-icons/hi";
 
 const Navbar = () => {
@@ -22,6 +22,21 @@ const Navbar = () => {
         { href: "/login", label: "Login" },
         { href: "/signup", label: "Sign Up" },
     ];
+
+
+    const { data: session } = authClient.useSession();
+    const user = session?.user;
+
+    const router = useRouter();
+    const handleSignout = async () => {
+        await authClient.signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    router.push("/"); // redirect to home page
+                },
+            },
+        });
+    }
 
     return (
         <div className="absolute top-0 z-50 w-full p-3 md:p-4">
@@ -53,21 +68,9 @@ const Navbar = () => {
                 </Link>
 
                 {/* Right Menu Desktop */}
-                <ul className="hidden items-center space-x-6 font-medium lg:flex">
-                    <li>
-                        <Link
-                            href="/profile"
-                            className={`flex items-center gap-1 ${pathName === "/profile"
-                                ? "text-cyan-500 underline underline-offset-4"
-                                : "text-gray-700"
-                                }`}
-                        >
-                            <GoPerson />
-                            Profile
-                        </Link>
-                    </li>
+                <ul className="hidden items-center space-x-4 font-medium lg:flex">
 
-                    {authLinks.map((link) => (
+                    {!user && authLinks.map((link) => (
                         <li key={link.href}>
                             <Link
                                 href={link.href}
@@ -77,10 +80,37 @@ const Navbar = () => {
                                         : "text-gray-700"
                                 }
                             >
-                                {link.label}
+                                <Button
+                                    onClick={handleSignout}
+                                    variant="outline"
+                                    className="hover:bg-cyan-500 hover:text-white transition-all">
+
+                                    {link.label}
+                                </Button>
                             </Link>
                         </li>
                     ))}
+
+
+                    {user &&
+                        <div className="flex items-center gap-4">
+
+                            <Link href='/profile'>
+                                <Avatar title={user?.name}>
+                                    <Avatar.Image referrerPolicy="no-referrer" alt={user?.name} src={user?.image} />
+                                    <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+                                </Avatar>
+                            </Link>
+
+                            <Button
+                                onClick={handleSignout}
+                                variant="outline"
+                                className="hover:bg-cyan-500 hover:text-white transition-all">
+
+                                SignOut
+                            </Button>
+                        </div>
+                    }
                 </ul>
 
                 {/* Mobile Menu Button */}
@@ -111,19 +141,23 @@ const Navbar = () => {
                             </li>
                         ))}
 
-                        <li>
-                            <Link
-                                href="/profile"
-                                className={`${pathName === "/profile"
-                                    ? "text-cyan-500"
-                                    : "text-gray-700"
-                                    }`}
-                            >
-                                Profile
-                            </Link>
-                        </li>
+                        {user && <>
+                            <li>
+                                <Link
+                                    href="/profile"
+                                    className={
+                                        pathName === "/profile"
+                                            ? "text-cyan-500"
+                                            : "text-gray-700"
+                                    }
+                                >
+                                    Profile
+                                </Link>
+                            </li>
 
-                        {authLinks.map((link) => (
+                        </>}
+
+                        {!user && authLinks.map((link) => (
                             <li key={link.href}>
                                 <Link
                                     href={link.href}

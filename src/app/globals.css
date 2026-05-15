@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "@heroui/styles";
 
-.font-merienda {
+.font-merienda,
+.font-secondary {
     font-family: var(--font-merienda);
 }

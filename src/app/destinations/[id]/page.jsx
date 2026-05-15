@@ -1,6 +1,10 @@
+
+
 import { getSingleDestination } from '@/actions/destination';
+import BookingForm from '@/components/BookingForm';
 import { DeleteAlert } from '@/components/DeleteAlert';
 import { EditModal } from '@/components/EditModal';
+import { authClient } from '@/lib/auth-client';
 
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +20,6 @@ import {
 const DestinationDetailsPage = async ({ params }) => {
     const { id } = await params;
     const destination = await getSingleDestination(id);
-    // console.log(destination);
 
     return (
         <section className="min-h-screen bg-[#f8f8f8] py-25">
@@ -106,17 +109,8 @@ const DestinationDetailsPage = async ({ params }) => {
                                 per person
                             </p>
 
-                            {/* date */}
-                            <input
-                                type="date"
-                                className="w-full border border-gray-200 h-14 px-4 outline-none mb-6"
-                            />
-
-                            {/* button */}
-                            <button className="w-full h-14 bg-sky-500 hover:bg-sky-600 transition text-white font-medium flex items-center justify-center gap-3 mb-8">
-                                Book Now
-                                <FaArrowRight />
-                            </button>
+                            {/* Booking Form */}
+                            <BookingForm destination={destination} />
 
                             {/* features */}
                             <div className="space-y-4">

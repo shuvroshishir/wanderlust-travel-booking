@@ -1,8 +1,8 @@
-import Banner from "@/components/Banner";
-import CTASection from "@/components/CTASection";
-import FeaturedDestinations from "@/components/FeaturedDestinations";
-import Testimonials from "@/components/Testimonials";
-import WhyChoose from "@/components/WhyChoose";
+import Banner from "@/components/home/Banner";
+import CTASection from "@/components/home/CTASection";
+import FeaturedDestinations from "@/components/home/FeaturedDestinations";
+import Testimonials from "@/components/home/Testimonials";
+import WhyChoose from "@/components/home/WhyChoose";
 
 export default function Home() {
   return (

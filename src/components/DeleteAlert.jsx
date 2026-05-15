@@ -10,7 +10,7 @@ export function DeleteAlert({ destination }) {
 
     const handleDelete = async () => {
 
-        const res = await fetch(`http://localhost:5000/destinations/${_id}`, {
+        const res = await fetch(`http://localhost:5000/destinations/${_id}`, {      //REST API= Representational State Transfer API
             method: "DELETE",
             headers: {
                 "content-type": "application/json",

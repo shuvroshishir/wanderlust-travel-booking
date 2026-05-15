@@ -33,7 +33,7 @@ const AdminPage = () => {
 
 
     return (
-        <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg my-30">
+        <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg my-25">
             <h1 className="font-merienda text-3xl font-bold text-center">Add New Travel Package</h1>
             <form
                 onSubmit={handleSubmit}

@@ -4,11 +4,8 @@ import { getAllDestinations } from "@/actions/destination";
 import Link from "next/link";
 import {
     FaArrowRight,
-    FaMapMarkerAlt,
-    FaRegCalendarAlt,
-    FaStar,
 } from "react-icons/fa";
-import DestinationCard from "./DestinationCard";
+import DestinationCard from "../DestinationCard";
 
 
 const FeaturedDestinations = async () => {

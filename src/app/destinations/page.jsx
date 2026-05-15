@@ -9,7 +9,7 @@ const DestinationPage = async () => {
     const destinations = await getAllDestinations();
 
     return (
-        <section className="min-h-screen bg-[#f7f7f7] py-30">
+        <section className="min-h-screen bg-[#f7f7f7] py-25">
             <div className="max-w-7xl mx-auto px-5">
                 {/* heading */}
                 <div className="mb-10">

@@ -11,7 +11,7 @@ const DestinationCard = ({ destination }) => {
     const { _id, imageUrl, country, destinationName, duration, price } = destination;
 
     return (
-        <div className="group border border-gray-300 rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-lg p-5 transition flex flex-col">
+        <div className="group border border-gray-300 rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-lg p-5 pb-7 transition flex flex-col">
 
             {/* image */}
             <div className="relative overflow-hidden rounded-lg">
@@ -20,7 +20,7 @@ const DestinationCard = ({ destination }) => {
                     alt={destinationName}
                     width={500}
                     height={350}
-                    className="w-full h-[230px] object-cover group-hover:scale-105 transition duration-500"
+                    className="w-full h-57.5 object-cover group-hover:scale-105 transition duration-500"
                 />
             </div>
 
@@ -55,12 +55,14 @@ const DestinationCard = ({ destination }) => {
                 </div>
 
                 {/* button */}
-                <Link href={`/destinations/${_id}`}>
-                    <button className="text-sky-500 font-medium flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
-                        BOOK NOW
-                        <FaArrowRight className="text-sm" />
-                    </button>
-                </Link>
+                <div className="mt-auto ">
+                    <Link href={`/destinations/${_id}`}>
+                        <button className="text-sky-500 font-medium flex items-center gap-2 group-hover:gap-3 transition-all ">
+                            BOOK NOW
+                            <FaArrowRight className="text-sm" />
+                        </button>
+                    </Link>
+                </div>
             </div>
         </div>
     );
