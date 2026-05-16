@@ -2,7 +2,9 @@
 
 import { EditProfileModal } from "@/components/EditProfileModal";
 import { authClient } from "@/lib/auth-client";
+import { Button } from "@heroui/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
     FaCamera,
     FaMapMarkerAlt,
@@ -11,6 +13,7 @@ import {
     FaChartLine,
     FaDollarSign,
     FaPen,
+    FaSignOutAlt,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
@@ -18,8 +21,19 @@ const ProfilePage = () => {
     const { data: session } = authClient.useSession();
     const user = session?.user;
 
+    const router = useRouter();
+    const handleSignout = async () => {
+        await authClient.signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    router.push("/"); // redirect to home page
+                },
+            },
+        });
+    }
+
     return (
-        <div className="max-w-7xl mx-auto my-25">
+        <div className="max-w-7xl mx-auto my-25 px-5">
             {/* Heading */}
             <div className="mb-10">
                 <h1 className="font-secondary text-5xl font-semibold text-black">My Profile</h1>
@@ -80,6 +94,12 @@ const ProfilePage = () => {
                     </div>
 
                     {user && <EditProfileModal user={user} />}
+
+                    <Button
+                        onClick={handleSignout}
+                        variant="outline" size="lg" className="border border-gray-300 px-6 py-2 flex items-center gap-2 hover:bg-red-500 hover:text-white transition rounded-full w-full justify-center mt-5">
+                        <FaSignOutAlt /> Sign Out
+                    </Button>
                 </div>
 
                 {/* Right Side */}

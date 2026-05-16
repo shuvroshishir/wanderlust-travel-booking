@@ -39,7 +39,7 @@ const Banner = () => {
             </div>
 
             {/* Search Box */}
-            <div className="hidden w-full max-w-7xl items-center justify-between gap-4 rounded-xl border border-white/20 bg-white/20 px-4 py-1 backdrop-blur-md md:flex">
+            <div className="hidden w-full  items-center justify-between gap-4 rounded-xl border border-white/20 bg-white/20 px-5 py-1 backdrop-blur-md md:flex">
 
                 <div className="p-2">
                     <h3 className="text-sm font-medium">Location</h3>

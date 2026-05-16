@@ -40,7 +40,7 @@ const Navbar = () => {
 
     return (
         <div className="absolute top-0 z-50 w-full p-3 md:p-4">
-            <nav className="max-w-7xl mx-auto rounded-xl flex items-center justify-between bg-white p-3 px-6">
+            <nav className=" mx-auto rounded-xl flex items-center justify-between bg-white py-2.5 px-5">
 
                 {/* Left Menu Desktop */}
                 <ul className="hidden items-center space-x-6 font-medium lg:flex">
@@ -105,7 +105,7 @@ const Navbar = () => {
                             <Button
                                 onClick={handleSignout}
                                 variant="outline"
-                                className="hover:bg-cyan-500 hover:text-white transition-all">
+                                className="hover:bg-red-500 hover:text-white transition-all">
 
                                 SignOut
                             </Button>

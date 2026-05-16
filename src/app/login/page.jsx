@@ -14,6 +14,7 @@ import {
 import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
 import toast from 'react-hot-toast';
+import Link from "next/link";
 
 const LoginPage = () => {
     const onSubmit = async (e) => {
@@ -110,6 +111,10 @@ const LoginPage = () => {
 
                 <div>
                     <Button onClick={handleGoogleSignin} variant="outline" className={'w-full '}><FcGoogle /> Sign in with Google</Button>
+                </div>
+
+                <div>
+                    <p className="text-sm text-center text-gray-500 mt-3 mb-0">Don&apos;t have an account? <Link href="/signup" className="text-cyan-500 font-bold">Sign Up</Link></p>
                 </div>
             </Card>
         </div>
