@@ -31,10 +31,16 @@ const BookingForm = ({ destination }) => {
             departureDate: date,
         };
 
+        // accessing token from client side using better-auths token generation method
+        const { data: tokenData } = await authClient.token();
+        // console.log("token from client side: ", tokenData);
+
+
         const res = await fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`,   // sending token to server for authentication
             },
             body: JSON.stringify(bookingData),
         });

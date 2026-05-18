@@ -1,6 +1,19 @@
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+
 export const getAllDestinations = async () => {
+
+    // access token from cookies using better-auths token generation method
+    const { token } = await auth.api.getToken({
+        headers: await headers(),
+    });
+
     const res = await fetch("http://localhost:5000/destinations", {
         cache: "no-store",
+        headers:
+        {
+            authorization: `Bearer ${token}`,   //sending token to server for authentication
+        },
     });
 
     if (!res.ok) {
@@ -12,13 +25,21 @@ export const getAllDestinations = async () => {
 
 
 export const getSingleDestination = async (id) => {
-    const res = await fetch(`http://localhost:5000/destinations/${id}`, {
-        cache: "no-store",
+
+    // access token from cookies using better-auths token generation method
+    const { token } = await auth.api.getToken({
+        headers: await headers(),
     });
 
-    if (!res.ok) {
-        throw new Error("Failed to fetch destination");
-    }
+    // console.log("Token from client side:", token);
+
+    const res = await fetch(`http://localhost:5000/destinations/${id}`, {
+        cache: "no-store",
+        headers:
+        {
+            authorization: `Bearer ${token}`,   //sending token to server for authentication
+        },
+    });
 
     return res.json();
 };

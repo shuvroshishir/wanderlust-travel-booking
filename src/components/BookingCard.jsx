@@ -26,6 +26,8 @@ const BookingCard = ({ booking }) => {
                             src={destinationImage}
                             alt={destinationName}
                             fill
+                            priority
+                            sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover"
                         />
                     </div>

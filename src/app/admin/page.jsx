@@ -1,5 +1,6 @@
 'use client';
 
+import { authClient } from '@/lib/auth-client';
 import { FieldError, Input, Label, ListBox, TextField, Select, TextArea, Button } from '@heroui/react';
 import { redirect } from 'next/navigation';
 import React from 'react';
@@ -13,10 +14,12 @@ const AdminPage = () => {
         const formData = new FormData(e.target);
         const destinationData = Object.fromEntries(formData.entries());
 
+        const { data: tokenData } = await authClient.token();
         const res = await fetch('http://localhost:5000/destinations', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`,
             },
             body: JSON.stringify(destinationData),
         })

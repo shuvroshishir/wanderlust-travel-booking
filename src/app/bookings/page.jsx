@@ -8,11 +8,20 @@ const BookingsPage = async () => {
 
     const session = await auth.api.getSession({
         headers: await headers() // you need to pass the headers object.
-    })
-    const user = session?.user;
+    });
 
+    // access token from cookies using better-auths token generation method
+    const { token } = await auth.api.getToken({
+        headers: await headers(),
+    });
+
+    const user = session?.user;
     const res = await fetch('http://localhost:5000/bookings/' + user?.id, {
         cache: 'no-store',
+        headers:
+        {
+            authorization: `Bearer ${token}`,   //sending token to server for authentication
+        },
     });
     const myBookings = await res.json();
 
@@ -42,6 +51,7 @@ const BookingsPage = async () => {
 
 
                         myBookings.length > 0 ? (
+                            // bookings list
                             <div className="space-y-6">
                                 {myBookings.map((booking) => (
                                     <BookingCard key={booking._id} booking={booking} />

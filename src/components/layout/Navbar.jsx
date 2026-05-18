@@ -96,7 +96,7 @@ const Navbar = () => {
                         <div className="flex items-center gap-4">
 
                             <Link href='/profile'>
-                                <Avatar title={user?.name}>
+                                <Avatar title={user?.name} className="w-9 h-9">
                                     <Avatar.Image referrerPolicy="no-referrer" alt={user?.name} src={user?.image} />
                                     <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
                                 </Avatar>
